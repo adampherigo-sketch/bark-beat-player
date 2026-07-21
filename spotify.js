@@ -7,7 +7,7 @@
 
 // Safe to expose in browser code.
 // Never add your Spotify Client Secret here.
-const SPOTIFY_CLIENT_ID = "PASTE_YOUR_CLIENT_ID_HERE";
+const SPOTIFY_CLIENT_ID = "42556580e4224ecaa7de1f4ec4c37263";
 
 const SPOTIFY_REDIRECT_URI =
   window.location.hostname === "127.0.0.1"
