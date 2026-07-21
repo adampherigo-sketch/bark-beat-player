@@ -2,7 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="Bark Beat is a custom Spotify-connected music player."
+  />
 
   <title>Bark Beat Player</title>
 
@@ -15,20 +24,55 @@
 
     <aside class="sidebar">
 
-      <h1>Bark<br><span>Beat</span></h1>
+      <h1>
+        Bark<br>
+        <span>Beat</span>
+      </h1>
 
       <p>Player 🐾</p>
 
-      <nav>
-        <a class="active" href="#">♪ Now Playing</a>
-        <a href="#">♬ Playlist</a>
-        <a href="#">🎙 Podcasts</a>
-        <a href="#">♡ Favorites</a>
-        <a href="#">⚙ Settings</a>
+      <nav aria-label="Main navigation">
+        <a class="active" href="#">
+          ♪ Now Playing
+        </a>
+
+        <a href="#">
+          ♬ Playlist
+        </a>
+
+        <a href="#">
+          🎙 Podcasts
+        </a>
+
+        <a href="#">
+          ♡ Favorites
+        </a>
+
+        <a href="#">
+          ⚙ Settings
+        </a>
       </nav>
+
+      <button
+        id="spotify-login-btn"
+        class="spotify-button"
+        type="button"
+      >
+        Connect Spotify
+      </button>
+
+      <p
+        id="spotify-status"
+        class="spotify-status"
+        role="status"
+        aria-live="polite"
+      >
+        Spotify is not connected
+      </p>
 
       <div class="sidebar-card">
         <p>Bark Beat System</p>
+
         <small>v1.0.0</small>
       </div>
 
@@ -36,21 +80,38 @@
 
     <section class="main-player">
 
-      <div class="top-label">♪ NOW PLAYING</div>
+      <div class="top-label">
+        ♪ NOW PLAYING
+      </div>
 
       <div class="song-area">
 
         <div class="cover-card">
-          <img src="cover.jpg" alt="Album cover">
+          <img
+            id="cover-image"
+            src="cover.jpg"
+            alt="Current album cover"
+          >
         </div>
 
         <div class="track-info">
 
-          <h2 id="track-title">Night Drive</h2>
-          <h3 id="track-artist">Pup Envy</h3>
-          <p>Neon Nights EP</p>
+          <h2 id="track-title">
+            Night Drive
+          </h2>
 
-          <div class="paw-waveform">
+          <h3 id="track-artist">
+            Pup Envy
+          </h3>
+
+          <p id="track-album">
+            Neon Nights EP
+          </p>
+
+          <div
+            class="paw-waveform"
+            aria-hidden="true"
+          >
             <span class="dot"></span>
             <span class="paw small">🐾</span>
             <span class="dot"></span>
@@ -65,22 +126,73 @@
           </div>
 
           <div class="time-row">
-            <span id="current-time">0:00</span>
-            <span id="duration">0:00</span>
+            <span id="current-time">
+              0:00
+            </span>
+
+            <span id="duration">
+              0:00
+            </span>
           </div>
 
-          <input type="range" id="progress" value="0" min="0" max="100">
+          <input
+            type="range"
+            id="progress"
+            value="0"
+            min="0"
+            max="100"
+            aria-label="Song progress"
+          >
 
           <div class="controls">
-            <button id="back-btn">⏮</button>
-            <button id="play-btn" class="play-button">▶</button>
-            <button id="next-btn">⏭</button>
+
+            <button
+              id="back-btn"
+              type="button"
+              aria-label="Previous track"
+            >
+              ⏮
+            </button>
+
+            <button
+              id="play-btn"
+              class="play-button"
+              type="button"
+              aria-label="Play or pause"
+            >
+              ▶
+            </button>
+
+            <button
+              id="next-btn"
+              type="button"
+              aria-label="Next track"
+            >
+              ⏭
+            </button>
+
           </div>
 
           <div class="volume-row">
-            <span>🔈</span>
-            <input type="range" id="volume" min="0" max="1" step="0.01" value="0.8">
-            <span>🔊</span>
+
+            <span aria-hidden="true">
+              🔈
+            </span>
+
+            <input
+              type="range"
+              id="volume"
+              min="0"
+              max="100"
+              step="1"
+              value="80"
+              aria-label="Spotify volume"
+            >
+
+            <span aria-hidden="true">
+              🔊
+            </span>
+
           </div>
 
         </div>
@@ -91,40 +203,51 @@
 
     <aside class="playlist-panel">
 
-      <button class="mode-button">🐾 Pup Mode</button>
+      <button
+        class="mode-button"
+        type="button"
+      >
+        🎧 Spotify Mode
+      </button>
 
       <div class="playlist-box">
 
-        <h3>Up Next</h3>
+        <h3>
+          Recently Played
+        </h3>
 
-        <div class="playlist-item active">
-          <img src="cover.jpg" alt="">
-          <div>
-            <h4>Night Drive</h4>
-            <p>Pup Envy</p>
+        <div
+          id="recently-played"
+          class="recently-played"
+        >
+
+          <div class="playlist-item active">
+
+            <img
+              src="cover.jpg"
+              alt=""
+            >
+
+            <div>
+              <h4>Connect Spotify</h4>
+
+              <p>
+                Your recent tracks will appear here.
+              </p>
+            </div>
+
+            <span>—</span>
+
           </div>
-          <span>3:42</span>
+
         </div>
 
-        <div class="playlist-item">
-          <img src="cover.jpg" alt="">
-          <div>
-            <h4>Collar Tight</h4>
-            <p>Ruff Ryders</p>
-          </div>
-          <span>2:58</span>
-        </div>
-
-        <div class="playlist-item">
-          <img src="cover.jpg" alt="">
-          <div>
-            <h4>Chase the Beat</h4>
-            <p>DJ Howl</p>
-          </div>
-          <span>3:15</span>
-        </div>
-
-        <p class="playlist-total">6 Tracks • 19:12</p>
+        <p
+          id="playlist-total"
+          class="playlist-total"
+        >
+          Spotify not connected
+        </p>
 
       </div>
 
@@ -135,17 +258,30 @@
   <footer class="bottom-player">
 
     <div>
-      <strong>BARK BEAT PLAYER</strong>
-      <p>Where Every Track Howls.</p>
+      <strong>
+        BARK BEAT PLAYER
+      </strong>
+
+      <p>
+        Where Every Track Howls.
+      </p>
     </div>
 
-    <div class="mini-wave"></div>
+    <div
+      class="mini-wave"
+      aria-hidden="true"
+    ></div>
 
-    <button>🐕</button>
+    <button
+      type="button"
+      aria-label="Bark Beat"
+    >
+      🐕
+    </button>
 
   </footer>
-  
-  <script src="player.js"></script>
+
+  <script src="spotify.js"></script>
 
 </body>
 </html>
