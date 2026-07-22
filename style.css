@@ -567,3 +567,90 @@ input[type="range"] {
     text-align: center;
   }
 }
+/* ==================================
+   SPOTIFY CONNECTION
+================================== */
+
+.spotify-button {
+  display: block;
+
+  width: 100%;
+
+  margin-top: 24px;
+  margin-bottom: 12px;
+
+  padding: 14px 16px;
+
+  border: 1px solid rgba(255, 57, 212, 0.45);
+
+  border-radius: 12px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(255, 57, 212, 0.28),
+    rgba(177, 76, 255, 0.18)
+  );
+
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 18px rgba(255, 57, 212, 0.15);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.spotify-button:hover {
+  transform: translateY(-2px);
+
+  background: linear-gradient(
+    90deg,
+    rgba(255, 57, 212, 0.45),
+    rgba(177, 76, 255, 0.28)
+  );
+
+  box-shadow:
+    0 0 24px rgba(255, 57, 212, 0.3);
+}
+
+.spotify-button:active {
+  transform: translateY(0);
+}
+
+.spotify-button:focus-visible {
+  outline: 2px solid #ff65dc;
+  outline-offset: 3px;
+}
+
+.sidebar > .spotify-status {
+  margin: 0 0 24px;
+
+  color: rgba(255, 255, 255, 0.62);
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  letter-spacing: 0;
+
+  text-align: center;
+
+  overflow-wrap: anywhere;
+}
+
+.recently-played {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
