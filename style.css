@@ -654,3 +654,9 @@ input[type="range"] {
 
   gap: 10px;
 }
+.controls button:disabled {
+  opacity: 0.45;
+  cursor: wait;
+  pointer-events: none;
+  transform: none;
+}
